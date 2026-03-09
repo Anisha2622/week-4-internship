@@ -1,20 +1,24 @@
-document.getElementById("contactForm")?.addEventListener("submit", function(e){
+document.getElementById("contactForm")?.addEventListener("submit",function(e){
 
-e.preventDefault();
+e.preventDefault()
 
-const name=document.getElementById("name").value;
-const email=document.getElementById("email").value;
-const message=document.getElementById("message").value;
+let name=document.getElementById("name").value
+let email=document.getElementById("email").value
+let message=document.getElementById("message").value
 
-const msg=document.getElementById("formMessage");
+let error=document.getElementById("error")
 
 if(name=="" || email=="" || message==""){
-msg.textContent="Please fill all fields";
-msg.style.color="red";
-return;
+error.textContent="All fields are required"
+return
 }
 
-msg.textContent="Message sent successfully!";
-msg.style.color="green";
+if(!email.includes("@")){
+error.textContent="Enter valid email"
+return
+}
 
-});
+error.style.color="green"
+error.textContent="Message sent successfully"
+
+})
