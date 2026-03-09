@@ -9,16 +9,18 @@ let message=document.getElementById("message").value
 let error=document.getElementById("error")
 
 if(name=="" || email=="" || message==""){
-error.textContent="All fields are required"
+error.textContent="Please fill all fields"
+error.style.color="red"
 return
 }
 
 if(!email.includes("@")){
-error.textContent="Enter valid email"
+error.textContent="Enter a valid email"
+error.style.color="red"
 return
 }
 
+error.textContent="Message sent successfully!"
 error.style.color="green"
-error.textContent="Message sent successfully"
 
 })
